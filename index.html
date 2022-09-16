@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>in-depth-vue</title>
+
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h2 v-if="isShowing">{{name}} is {{age}} and lives in {{country}}</h2>
+
+      <button @click="age--">decrease age</button>
+      <button @click="changeName">change name</button>
+      <button @click="changeCountry('Greece')">change country</button>
+
+      <button @click="showInfo">
+        <span v-if="isShowing">hide info</span>
+        <span v-else>show info</span>
+      </button>
+
+      <div v-show="isShowing">show content</div>
+      <br />
+
+      <!-- MOUSE EVENTS -->
+      <div class="box" @mouseover="handleEvent($event, 10)">
+        mouseover (enter)
+      </div>
+      <div class="box" @mouseleave="handleEvent">mouse leave</div>
+      <div class="box" @dblclick="handleEvent">double click</div>
+      <div class="box" @mousemove="handleMousemove">
+        position: {{x}} - {{y}}
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
