@@ -8,6 +8,12 @@
 
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <style>
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
       .box {
         padding: 100px 0;
         width: 400px;
@@ -15,6 +21,33 @@
         background: #ddd;
         margin: 20px;
         display: inline-block;
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+        display: block;
+        margin: auto;
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
+
+      img {
+        margin: auto;
+        display: block;
+        width: 400px;
+      }
+
+      span {
+        display: block;
+        text-align: center;
+      }
+
+      .fav {
+        background: orange;
       }
     </style>
   </head>
@@ -43,6 +76,17 @@
       <div class="box" @mousemove="handleMousemove">
         position: {{x}} - {{y}}
       </div>
+
+      <ul>
+        <li
+          v-for="album in albums"
+          :class="{fav: album.isFav}"
+          @click="toggleFav(album)"
+        >
+          <img :src="album.albumCover" :alt="album.desc" />
+          <span>{{album.desc}}</span>
+        </li>
+      </ul>
     </div>
     <script src="app.js"></script>
   </body>
