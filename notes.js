@@ -13,3 +13,9 @@
 // computed properties
 // a way to define a data property inside the component
 // it depends on other data - when data changes the computed property will update
+
+// ADVANTAGES OF VUE CLI
+
+// modern JS features not supported in all browsers
+// live-reload dev server
+// code optimization for production

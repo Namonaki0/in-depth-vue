@@ -60,6 +60,11 @@ const app = Vue.createApp({
       console.log(album.isFav);
     },
   },
+  computed: {
+    filteredFavs() {
+      return this.albums.filter((album) => album.isFav);
+    },
+  },
 });
 
 app.mount("#app");

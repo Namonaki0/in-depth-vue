@@ -86,6 +86,12 @@
           <img :src="album.albumCover" :alt="album.desc" />
           <span>{{album.desc}}</span>
         </li>
+
+        <h3>FAVORITES</h3>
+        <div v-for="fav in filteredFavs" :class="{fav: fav.isFav}">
+          <img :src="fav.albumCover" :alt="fav.desc" />
+          <span>{{fav.desc}}</span>
+        </div>
       </ul>
     </div>
     <script src="app.js"></script>

@@ -1,0 +1,1 @@
+Go over important concepts in Vue and fill any gaps in knowledge.
