@@ -19,3 +19,17 @@
 // modern JS features not supported in all browsers
 // live-reload dev server
 // code optimization for production
+
+// REFS
+// this.$refs.nameOfElement - to access elements in DOM
+
+// App.vue -> root component
+
+// single source of truth (data)
+// passing data as props from parent to several child components
+
+// PROPS
+// make components more reusable, customisable and allows for a single source of truth when it comes to data
+
+// custom events
+// can be fired from a child component and be listen to from the parent component
