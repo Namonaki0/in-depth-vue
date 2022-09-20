@@ -1,9 +1,9 @@
 <template>
-    <div class="backdrop" @click.self="closeModal">
-        <div class="modal" :class="{ dark: theme === 'dark' }">
+    <div class="backdrop" @click.self="closeModalTwo">
+        <div class="modalTwo" :class="{funkyClr : funky === 'funkyClr'}">
             <slot></slot>
-            <div class="cta">
-                <slot name="links"></slot>
+            <div class="cta-links">
+                <slot name="cta-links"></slot>
             </div>
         </div>
     </div>
@@ -11,24 +11,24 @@
 
 <script>
     export default {
-        props: ["theme"],
+        props: ["funky", "modalTwoColour"],
         methods: {
-            closeModal() {
-                this.$emit("close")
+            closeModalTwo(){
+                this.$emit("closeModalTwo")
             }
         }
     }
 </script>
 
 <style>
-    .backdrop {
+     .backdrop {
         position: fixed;
         top: 0;
         width: 100%;
         height: 100%;
         background: rgba(0,0,0,0.6);
     }
-    .modal {
+    .modalTwo {
         display: grid;
         place-content: center;
         width: 500px;
@@ -39,27 +39,21 @@
         border-radius: 10px;
     }
 
-    .modal.dark {
-        background: #1c1c1c;
-        color: white;
+    .modalTwo.funkyClr {
+        background: orange;
     }
 
-    .modal.info {
-        background: red;
-    }
-
-    .modal.cta{
+    .modalTwo .cta-links{ 
         width: 100%;
-        background: red;
         display: flex;
         justify-content: space-around;
     }
 
-    .modal .cta a {
+    .modalTwo .cta-links a {
         color: white;
-        border: 1px solid white;
         padding: .5rem 1rem;
         margin-top: 1.8em;
     }
 
+ 
 </style>
