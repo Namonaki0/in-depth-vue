@@ -1,6 +1,8 @@
 <template>
-  <Block />
-  <Results />
+    <button @click="startGame" :disabled="isPlaying">start game</button>
+    <h2>reaction-timer</h2>
+    <Block v-if="isPlaying" :delay="delay" :isPlaying="isPlaying" @stop="stopGame"/>
+    <Results />
 </template>
 
 <script>
@@ -12,6 +14,23 @@ export default {
   components: {
     Block,
     Results
+  },
+  data() {
+    return {
+      delay: null,
+      isPlaying: false
+    }
+  },
+  methods: {
+    startGame(){
+      this.delay = 1000 + Math.random() * 4000
+      this.isPlaying = true
+   
+    },
+    stopGame(){
+      this.isPlaying = false
+      console.log("game ended", this.delay)
+    }
   }
 }
 </script>
@@ -24,5 +43,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-left: auto;
 }
+
 </style>
