@@ -1,8 +1,8 @@
 <template>
-    <button @click="startGame" :disabled="isPlaying">start game</button>
-    <h2>reaction-timer</h2>
-    <Block v-if="isPlaying" :delay="delay" :isPlaying="isPlaying" @stop="stopGame"/>
-    <Results />
+    <button @click="startGame" :disabled="isPlaying">START GAME</button>
+    <h2>REACTION-TIMER</h2>
+    <Block v-if="isPlaying" :delay="delay" :isPlaying="isPlaying" @stop="endGame"/>
+    <Results v-if="showResults" :score="score"/>
 </template>
 
 <script>
@@ -18,18 +18,22 @@ export default {
   data() {
     return {
       delay: null,
-      isPlaying: false
+      isPlaying: false,
+      showResults: false,
+      score: null
     }
   },
   methods: {
     startGame(){
       this.delay = 1000 + Math.random() * 4000
       this.isPlaying = true
+      this.showResults = false
    
     },
-    stopGame(){
+    endGame(reactionTimer){
       this.isPlaying = false
-      console.log("game ended", this.delay)
+      this.showResults = true
+      this.score = reactionTimer
     }
   }
 }
@@ -44,6 +48,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   margin-left: auto;
+}
+
+button[disabled] {
+  cursor: not-allowed
 }
 
 </style>

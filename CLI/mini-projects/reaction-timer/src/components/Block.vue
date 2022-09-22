@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showBlock" class="block" @click="stopTimer">
+  <div v-if="showBlock" class="block" @click="endGame">
     <p>click me fast</p>
   </div>
 </template>
@@ -21,17 +21,15 @@ export default {
     }, this.delay);
   },
     methods: {
-    stopGame() {
-      this.$emit("stop");
-    },
     startTimer() {
       this.timer = setInterval(() => {
         this.reactionTimer += 10;
       }, 10);
     },
-    stopTimer() {
-      clearInterval(this.timer);
-      console.log(this.reactionTimer);
+    endGame() {
+      clearInterval(this.timer)
+      this.showBlock = false
+      this.$emit("stop", this.reactionTimer);
     },
   },
 };
