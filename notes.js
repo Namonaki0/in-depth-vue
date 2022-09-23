@@ -33,3 +33,5 @@
 
 // custom events
 // can be fired from a child component and be listen to from the parent component
+
+// 2-way data binding
