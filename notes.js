@@ -35,3 +35,8 @@
 // can be fired from a child component and be listen to from the parent component
 
 // 2-way data binding
+
+// router-link
+// after the first contact with the server the browser receives the raw js file with the
+// necessary Vue bundle which is then dealt with on the client side
+// components are switched in the browser depending on what the route is
