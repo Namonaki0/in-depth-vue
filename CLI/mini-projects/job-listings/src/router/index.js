@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import About from "../views/About.vue";
+// import About from "../views/About.vue";
+// import Jobs from "../views/jobs/Jobs.vue";
 import NotFound from "../views/NotFound.vue";
-import Jobs from "../views/jobs/Jobs.vue";
 import JobDescription from "../views/jobs/JobDescription.vue";
 
 const routes = [
@@ -14,12 +14,14 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    component: About,
+    // lazy loading components
+    component: () => import("../views/About"),
   },
   {
     path: "/jobs",
     name: "Jobs",
-    component: Jobs,
+    // lazy loading components
+    component: () => import("../views/jobs/Jobs"),
   },
   {
     path: "/jobs/:id",
