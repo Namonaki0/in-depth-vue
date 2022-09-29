@@ -1,24 +1,28 @@
 {
     "projects": [
         {
-            "title": "UX Designer",
             "id": 1,
-            "details": "Lorem ipsum dolor."
+            "title": "Add features link in menu",
+            "details": "Lorem ipsum dolor.",
+            "complete": false
         },
         {
-            "title": "Web Developer",
             "id": 2,
-            "details": "Lorem ipsum dolor, sit amet consectetur."
+            "title": "Fix merch page bug",
+            "details": "Lorem ipsum dolor.",
+            "complete": false
         },
         {
-            "title": "UI Designer",
             "id": 3,
-            "details": "Lorem ipsum dolor, sit."
+            "title": "Make email template",
+            "details": "Lorem ipsum dolor.",
+            "complete": true
         },
         {
-            "title": "FE Architect",
             "id": 4,
-            "details": "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+            "title": "Create new sales banner",
+            "details": "Lorem ipsum dolor.",
+            "complete": false
         }
     ]
 }
