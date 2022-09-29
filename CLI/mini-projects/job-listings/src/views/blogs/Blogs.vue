@@ -1,9 +1,9 @@
 <template>
-    <div v-if="blogs.length">
-        <h2>Blog Posts</h2>
+    <h2>Blog Posts</h2>
+    <div class="blogs-wrapper" v-if="blogs.length">
         <div v-for="blog in blogs" :key="blog.id">
-            <router-link :to="{ name: 'BlogContent', params: { id: blog.id } }">
-                <p>{{ blog.title }}</p>
+            <router-link class="blog-links" :to="{ name: 'BlogContent', params: { id: blog.id } }">
+                {{ blog.title }}
             </router-link>
         </div>
     </div>
@@ -29,3 +29,4 @@
         }
     }
 </script>
+

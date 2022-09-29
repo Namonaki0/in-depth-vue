@@ -30,12 +30,15 @@
 </script>
 
 <style>
-#app {
+#app, html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 nav {
@@ -62,4 +65,24 @@ button {
   color: white;
 }
 
+a.blog-links, a.job-links {
+  text-decoration: none;
+  display: block;
+  padding: .8rem .5rem;
+  color: white;
+}
+
+.blogs-wrapper, .jobs-wrapper {
+  background: #5d5d5d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.jobs-wrapper div {
+  border-bottom: 1px solid silver;
+  width: 100%;
+
+}
 </style>

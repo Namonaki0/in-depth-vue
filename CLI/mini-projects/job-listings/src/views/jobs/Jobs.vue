@@ -1,9 +1,9 @@
 <template>
-    <div v-if="jobs.length">
-        <h2>JOB LISTINGS</h2>
+    <h2>JOB LISTINGS</h2>
+    <div class="jobs-wrapper" v-if="jobs.length">
         <div v-for="job in jobs" :key="job.id">
-            <router-link :to="{ name: 'JobDescription', params: { id: job.id } }">
-                <p>{{job.title}}</p>
+            <router-link class="job-links" :to="{ name: 'JobDescription', params: { id: job.id } }">
+                {{job.title}}
             </router-link>
         </div>
     </div>
