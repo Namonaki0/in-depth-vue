@@ -1,7 +1,18 @@
 <template>
-  <div class="project" @click="showDetails">
+  <div class="project" >
     <div class="actions">
-      {{ project.title }}
+      <p @click="showDetails">{{ project.title }}</p>
+    <div class="icons">
+      <span class="material-icons" @click="deleteProject">
+        delete
+      </span>
+      <span class="material-icons">
+        edit
+      </span>
+      <span class="material-icons">
+        done
+      </span>
+    </div>
     </div>
     <div class="details" v-if="details">
       {{ project.details }}
@@ -14,12 +25,18 @@ export default {
   props: ["project"],
   data() {
     return {
-        details: false
+      details: false,
+      uri: "http://localhost:3000/projects/" + this.project.id
     }
   },
   methods: {
     showDetails() {
         this.details = !this.details;
+    },
+    deleteProject() {
+      fetch(this.uri, {method: "DELETE"})
+      .then(() => this.$emit("delete", this.project.id))
+      .catch(err => console.log(err))
     }
   }
 };
@@ -45,4 +62,18 @@ export default {
   font-size: 0.8rem;
   color: rgb(223, 223, 223);
 }
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icons .material-icons {
+  color: rgb(190, 190, 190)
+}
+.icons .material-icons:hover {
+  color: rgb(223, 223, 223)
+}
+
 </style>
