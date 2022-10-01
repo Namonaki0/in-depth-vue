@@ -1,28 +1,34 @@
 {
-    "projects": [
-        {
-            "id": 1,
-            "title": "Add features link in menu",
-            "details": "Lorem ipsum dolor.",
-            "complete": false
-        },
-        {
-            "id": 2,
-            "title": "Fix merch page bug",
-            "details": "Lorem ipsum dolor.",
-            "complete": false
-        },
-        {
-            "id": 3,
-            "title": "Make email template",
-            "details": "Lorem ipsum dolor.",
-            "complete": true
-        },
-        {
-            "id": 4,
-            "title": "Create new sales banner",
-            "details": "Lorem ipsum dolor.",
-            "complete": false
-        }
-    ]
+  "projects": [
+    {
+      "id": 1,
+      "title": "Add features link in menu",
+      "details": "Lorem ipsum dolor.",
+      "complete": true
+    },
+    {
+      "id": 2,
+      "title": "Fix merch page bug",
+      "details": "Lorem ipsum dolor.",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "title": "Make email template",
+      "details": "Lorem ipsum dolor.",
+      "complete": false
+    },
+    {
+      "id": 4,
+      "title": "Create new sales banner",
+      "details": "Lorem ipsum dolor.",
+      "complete": true
+    },
+    {
+      "title": "new site",
+      "details": "this is the content",
+      "complete": false,
+      "id": 5
+    }
+  ]
 }

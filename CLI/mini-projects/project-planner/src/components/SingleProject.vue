@@ -1,18 +1,12 @@
 <template>
-  <div class="project" >
+  <div class="project" :class="{ complete: project.complete }">
     <div class="actions">
       <p @click="showDetails">{{ project.title }}</p>
-    <div class="icons">
-      <span class="material-icons" @click="deleteProject">
-        delete
-      </span>
-      <span class="material-icons">
-        edit
-      </span>
-      <span class="material-icons">
-        done
-      </span>
-    </div>
+      <div class="icons">
+        <span class="material-icons" @click="deleteProject"> delete </span>
+        <span class="material-icons"> edit </span>
+        <span class="material-icons tick" @click="completeProject"> done </span>
+      </div>
     </div>
     <div class="details" v-if="details">
       {{ project.details }}
@@ -26,39 +20,53 @@ export default {
   data() {
     return {
       details: false,
-      uri: "http://localhost:3000/projects/" + this.project.id
-    }
+      uri: "http://localhost:3000/projects/" + this.project.id,
+    };
   },
   methods: {
     showDetails() {
-        this.details = !this.details;
+      this.details = !this.details;
     },
     deleteProject() {
-      fetch(this.uri, {method: "DELETE"})
-      .then(() => this.$emit("delete", this.project.id))
-      .catch(err => console.log(err))
-    }
-  }
+      fetch(this.uri, { method: "DELETE" })
+        .then(() => this.$emit("delete", this.project.id))
+        .catch((err) => console.log(err));
+    },
+    completeProject() {
+      fetch(this.uri, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ complete: !this.project.complete }),
+      })
+        .then(() => this.$emit("complete", this.project.id))
+        .catch((err) => console.log(err.message));
+    },
+  },
 };
 </script>
 
 <style>
 .project {
-  background: grey;
+  box-shadow: 2px 3px 1px rgba(112, 112, 112, 0.2);
   margin-bottom: 10px;
-  color: white;
+  border-top: 1px solid rgba(112, 112, 112, 0.053);
   border-left: 5px solid rgb(219, 67, 67);
-    padding: 10px 8px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: background 100ms linear;
+  padding: 10px 8px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: background 100ms linear;
+  border-radius: 2px;
 }
 
-.project:hover {
-  background: rgb(137, 137, 137);
+.project.complete {
+  border-left: 5px solid rgb(60, 174, 125);
 }
 
- .project .details {
+.project.complete .tick {
+  color: rgb(60, 174, 125);
+}
+
+.project .details {
   font-size: 0.8rem;
   color: rgb(223, 223, 223);
 }
@@ -70,10 +78,6 @@ export default {
 }
 
 .icons .material-icons {
-  color: rgb(190, 190, 190)
+  color: rgb(190, 190, 190);
 }
-.icons .material-icons:hover {
-  color: rgb(223, 223, 223)
-}
-
 </style>
