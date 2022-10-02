@@ -4,7 +4,9 @@
       <p @click="showDetails">{{ project.title }}</p>
       <div class="icons">
         <span class="material-icons" @click="deleteProject"> delete </span>
-        <span class="material-icons"> edit </span>
+        <router-link :to="{ name: 'edit-project', params: {id: project.id}}">
+          <span class="material-icons"> edit </span>
+        </router-link>
         <span class="material-icons tick" @click="completeProject"> done </span>
       </div>
     </div>

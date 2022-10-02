@@ -5,33 +5,41 @@
     <label>CONTENT:</label>
     <input type="text" v-model="details" />
 
-    <button>ADD PROJECT</button>
+    <button>UPDATE PROJECT</button>
   </form>
 </template>
 
 <script>
 export default {
+  props: ["id"],
   data() {
     return {
       title: "",
       details: "",
+      uri: "http://localhost:3000/projects/" + this.id,
     };
+  },
+  mounted() {
+    fetch(this.uri)
+      .then((res) => res.json())
+      .then((data) => {
+        this.title = data.title;
+        this.details = data.details;
+      })
+      .catch((err) => console.log(err));
   },
   methods: {
     handleSubmit() {
-      let project = {
-        title: this.title,
-        details: this.content,
-        complete: false,
-      };
-      fetch("http://localhost:3000/projects", {
-        method: "POST",
+        let project = {
+            title: this.title,
+            details: this.details,
+        };
+      fetch(this.uri, {
+        method: "PATCH",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(project),
       })
-        .then(() => {
-          this.$router.push("/");
-        })
+        .then(() => this.$router.push("/"))
         .catch((err) => console.log(err.message));
     },
   },

@@ -8,9 +8,13 @@
     },
     {
       "id": 2,
-      "title": "Fix merch page bug",
+      "title": "Fix sales page bug",
       "details": "Lorem ipsum dolor.",
-      "complete": false
+      "complete": false,
+      "project": {
+        "title": "Fix sales page bug",
+        "details": "Lorem ipsum dolor."
+      }
     },
     {
       "id": 3,
@@ -29,6 +33,12 @@
       "details": "this is the content",
       "complete": false,
       "id": 5
+    },
+    {
+      "title": "write handover",
+      "details": "include all the important details",
+      "complete": false,
+      "id": 6
     }
   ]
 }
