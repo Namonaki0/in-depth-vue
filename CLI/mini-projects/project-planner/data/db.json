@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "title": "Make email template",
+      "title": "Make email template with special chars",
       "details": "Lorem ipsum dolor.",
       "complete": false
     },
@@ -29,16 +29,16 @@
       "complete": true
     },
     {
-      "title": "new site",
-      "details": "this is the content",
-      "complete": false,
-      "id": 5
-    },
-    {
       "title": "write handover",
       "details": "include all the important details",
-      "complete": false,
+      "complete": true,
       "id": 6
+    },
+    {
+      "title": "new project",
+      "details": "sdasdsdsad",
+      "complete": false,
+      "id": 7
     }
   ]
 }
